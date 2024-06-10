@@ -13,6 +13,12 @@ const { loggedIn, clear } = useUserSession()
     </template>
     <template #right>
       <UButton
+        to="https://github.com/atinux/instadraw"
+        color="gray"
+        variant="ghost"
+        icon="i-simple-icons-github"
+      />
+      <UButton
         to="/draw"
         icon="i-ph-pencil"
         @click="showModal = true"

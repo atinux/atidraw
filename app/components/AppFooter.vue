@@ -18,6 +18,13 @@ const footerLinks = [
         :padded="false"
       >
         Nuxt
+      </UButton>, <UButton
+        to="https://ui.nuxt.com"
+        variant="link"
+        color="black"
+        :padded="false"
+      >
+        Nuxt UI
       </UButton> & <UButton
         to="https://hub.nuxt.com"
         variant="link"
