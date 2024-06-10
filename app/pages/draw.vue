@@ -37,7 +37,7 @@ async function save(dataURL: string) {
 <template>
   <UPageBody>
     <p class="text-center pb-4">
-      Draw something and share it with the world.
+      Create a drawing and share it with the world!
     </p>
     <div class="max-w-[400px] mx-auto">
       <DrawPad
