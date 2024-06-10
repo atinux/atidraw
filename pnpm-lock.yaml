@@ -42,8 +42,8 @@ importers:
         specifier: ^0.0.25
         version: 0.0.25(rollup@4.18.0)
       signature_pad:
-        specifier: ^5.0.1
-        version: 5.0.1
+        specifier: ^5.0.2
+        version: 5.0.2
     devDependencies:
       '@nuxt/eslint-config':
         specifier: ^0.3.13
@@ -55,8 +55,8 @@ importers:
         specifier: ^2.0.21
         version: 2.0.21(typescript@5.4.5)
       wrangler:
-        specifier: ^3.60.0
-        version: 3.60.0(@cloudflare/workers-types@4.20240605.0)
+        specifier: ^3.60.1
+        version: 3.60.1(@cloudflare/workers-types@4.20240605.0)
 
 packages:
 
@@ -4374,8 +4374,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  signature_pad@5.0.1:
-    resolution: {integrity: sha512-cecM+btTU3iwG21Er6IbXaqfEHcB+0u1BWe989QeBQm4fan4+xdps/zvBgbig8R811h8vkg5p3rqEV5anv62pg==}
+  signature_pad@5.0.2:
+    resolution: {integrity: sha512-FSseAwRWznAQg90CnrTbC570u1QYi8gijZiyboc18SK2IUx7sYVZhNPLnJRCnwhpyOpgdqXf91XAHL4Yg41yCg==}
 
   sigstore@2.3.1:
     resolution: {integrity: sha512-8G+/XDU8wNsJOQS5ysDVO0Etg9/2uA5gR9l4ZwijjlwxBcrU6RPfwi2+jJmbP+Ap1Hlp/nVAaEO4Fj22/SL2gQ==}
@@ -5066,8 +5066,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.60.0:
-    resolution: {integrity: sha512-8lW4E7VAhCVXy7AV7Vom2BsyjekIt15Aa8jnBLsfE2CxalzWQzx49BK25hOYhjHQT4GqBXeoNOZ43FrMQ+SUUA==}
+  wrangler@3.60.1:
+    resolution: {integrity: sha512-pVrqzgpRwFk/8bp/afsnuw6ttOJ0Y8XFDfLjVMnVeDGZJpQ5eHV3hf8fImavn2BeH6DLHucKnJHwISnzDciqRQ==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -10324,7 +10324,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  signature_pad@5.0.1: {}
+  signature_pad@5.0.2: {}
 
   sigstore@2.3.1:
     dependencies:
@@ -11088,7 +11088,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20240605.0
       '@cloudflare/workerd-windows-64': 1.20240605.0
 
-  wrangler@3.60.0(@cloudflare/workers-types@4.20240605.0):
+  wrangler@3.60.1(@cloudflare/workers-types@4.20240605.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.2
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)

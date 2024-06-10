@@ -23,12 +23,12 @@
     "@vueuse/core": "^10.10.0",
     "nuxt": "npm:nuxt-nightly@latest",
     "nuxt-auth-utils": "^0.0.25",
-    "signature_pad": "^5.0.1"
+    "signature_pad": "^5.0.2"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.3.13",
     "eslint": "^9.4.0",
     "vue-tsc": "^2.0.21",
-    "wrangler": "^3.60.0"
+    "wrangler": "^3.60.1"
   }
 }
