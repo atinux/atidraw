@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useMagicKeys } from '@vueuse/core'
 import SignaturePad from 'signature_pad'
 
 const props = defineProps({
@@ -36,6 +37,14 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeCanvas)
+})
+
+const { metaSymbol } = useShortcuts()
+const { meta, z, k } = useMagicKeys()
+
+watchEffect(() => {
+  if (meta.value && z.value) undo()
+  if (meta.value && k.value) clear()
 })
 
 function resizeCanvas() {
@@ -106,20 +115,30 @@ async function save() {
         />
       </div>
       <div class="flex items-center">
-        <UButton
-          variant="ghost"
-          color="gray"
-          label="Undo"
-          icon="i-ph-arrow-arc-left"
-          @click="undo"
-        />
-        <UButton
-          variant="ghost"
-          color="gray"
-          icon="i-ph-x"
-          label="Clear"
-          @click="clear"
-        />
+        <UTooltip
+          text="Undo"
+          :shortcuts="[metaSymbol, 'z']"
+        >
+          <UButton
+            variant="ghost"
+            color="gray"
+            label="Undo"
+            icon="i-ph-arrow-arc-left"
+            @click="undo"
+          />
+        </UTooltip>
+        <UTooltip
+          text="Clear"
+          :shortcuts="[metaSymbol, 'k']"
+        >
+          <UButton
+            variant="ghost"
+            color="gray"
+            icon="i-ph-x"
+            label="Clear"
+            @click="clear"
+          />
+        </UTooltip>
       </div>
     </div>
     <UButton
