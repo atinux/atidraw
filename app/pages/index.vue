@@ -16,6 +16,7 @@ const { data: drawings } = await useFetch('/api/drawings')
           :src="`/drawings/${drawing.pathname}`"
           :alt="drawing.pathname"
           class="max-w-[400px] max-h-[400px] w-full h-full rounded"
+          loading="lazy"
         >
         <div class="flex items-center justify-between max-w-[400px]">
           <NuxtLink
