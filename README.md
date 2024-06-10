@@ -7,9 +7,9 @@ Share your drawings with the world with this [Nuxt application](https://nuxt.com
 
 ## Features
 
-- Image upload with [`useUpload()`](http://hub.nuxt.com/docs/storage/blob)
+- Image upload with [`useUpload()`](https://hub.nuxt.com/docs/storage/blob)
 - Auth with Google & GitHub based on [`nuxt-auth-utils`](https://github.com/Atinux/nuxt-auth-utils)
-- Draw with [`signature_pad`](github.com/szimek/signature_pad)
+- Draw with [`signature_pad`](https://github.com/szimek/signature_pad)
 
 ## Setup
 
