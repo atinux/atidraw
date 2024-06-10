@@ -1,0 +1,34 @@
+{
+  "name": "nuxthub-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "deploy": "nuxthub deploy",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@iconify-json/logos": "^1.1.43",
+    "@iconify-json/ph": "^1.1.13",
+    "@iconify-json/simple-icons": "^1.1.105",
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/ui": "^2.16.0",
+    "@nuxt/ui-pro": "^1.2.0",
+    "@nuxthub/core": "^0.6.11",
+    "@vueuse/components": "^10.10.0",
+    "@vueuse/core": "^10.10.0",
+    "nuxt": "npm:nuxt-nightly@latest",
+    "nuxt-auth-utils": "^0.0.25",
+    "signature_pad": "^5.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.3.13",
+    "eslint": "^9.4.0",
+    "vue-tsc": "^2.0.21",
+    "wrangler": "^3.60.0"
+  }
+}
