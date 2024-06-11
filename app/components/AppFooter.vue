@@ -12,21 +12,21 @@ const footerLinks = [
   <UFooter :links="footerLinks">
     <template #left>
       <span class="text-sm">Made with <UButton
-        to="https://nuxt.com"
+        to="https://nuxt.com/?utm_source=instadraw"
         variant="link"
         color="black"
         :padded="false"
       >
         Nuxt
       </UButton>, <UButton
-        to="https://ui.nuxt.com"
+        to="https://ui.nuxt.com/?utm_source=instadraw"
         variant="link"
         color="black"
         :padded="false"
       >
         Nuxt UI
       </UButton> & <UButton
-        to="https://hub.nuxt.com"
+        to="https://hub.nuxt.com/?utm_source=instadraw"
         variant="link"
         color="black"
         :padded="false"
