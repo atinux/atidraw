@@ -2,8 +2,9 @@
 
 Share your drawings with the world with this [Nuxt application](https://nuxt.com) using [NuxtHub Blob storage](https://hub.nuxt.com/docs/storage/blob) and deployed on the Edge.
 
-- [Documentation](https://hub.nuxt.com)
 - [Demo](https://draw.nuxt.dev)
+- [NuxtHub docs](https://hub.nuxt.com)
+- [Nuxt docs](https://nuxt.com)
 
 ## Features
 
