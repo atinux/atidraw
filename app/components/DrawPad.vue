@@ -165,4 +165,7 @@ canvas {
   height: auto;
   aspect-ratio: 1;
 }
+a, button, canvas {
+  user-select: none;
+}
 </style>

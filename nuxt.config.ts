@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
   ],
   future: {
+    // New directory structure
+    // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
     compatibilityVersion: 4,
   },
   hub: {
