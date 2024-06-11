@@ -20,6 +20,12 @@ const emit = defineEmits(['save'])
 const canPost = ref(false)
 const canvas = ref()
 const signaturePad = ref()
+const { metaSymbol } = useShortcuts()
+
+defineShortcuts({
+  meta_z: undo,
+  meta_k: clear,
+})
 
 onMounted(() => {
   signaturePad.value = new SignaturePad(canvas.value, {
@@ -36,6 +42,7 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeCanvas)
+  signaturePad.value?.off()
 })
 
 function resizeCanvas() {
@@ -106,20 +113,30 @@ async function save() {
         />
       </div>
       <div class="flex items-center">
-        <UButton
-          variant="ghost"
-          color="gray"
-          label="Undo"
-          icon="i-ph-arrow-arc-left"
-          @click="undo"
-        />
-        <UButton
-          variant="ghost"
-          color="gray"
-          icon="i-ph-x"
-          label="Clear"
-          @click="clear"
-        />
+        <UTooltip
+          text="Undo"
+          :shortcuts="[metaSymbol, 'z']"
+        >
+          <UButton
+            variant="ghost"
+            color="gray"
+            label="Undo"
+            icon="i-ph-arrow-arc-left"
+            @click="undo"
+          />
+        </UTooltip>
+        <UTooltip
+          text="Clear"
+          :shortcuts="[metaSymbol, 'k']"
+        >
+          <UButton
+            variant="ghost"
+            color="gray"
+            icon="i-ph-x"
+            label="Clear"
+            @click="clear"
+          />
+        </UTooltip>
       </div>
     </div>
     <UButton
