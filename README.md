@@ -35,6 +35,16 @@ Build the application for production:
 pnpm build
 ```
 
+## Environment Variables
+
+Copy the `.env.example` file to `.env` and fill in the required environment variables:
+
+```bash
+cp .env.example .env
+```
+
+You may want to create Google and GitHub OAuth applications.
+
 ## Deploy on the Edge
 
 Deploy the application on the Edge with [NuxtHub](https://hub.nuxt.com):
