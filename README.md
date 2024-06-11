@@ -1,6 +1,6 @@
 # Instadraw
 
-Share your drawings with the world with this [Nuxt application](https://nuxt.com) using [NuxtHub Blob storage](https://hub.nuxt.com/docs/storage/blob) and deployed on the Edge.
+Share your drawings with the world with this [Nuxt application](https://nuxt.com) using [NuxtHub Blob storage](https://hub.nuxt.com/docs/storage/blob) (Cloudflare R2) and deployed on the Edge (Cloudflare Pages).
 
 - [Demo](https://draw.nuxt.dev)
 - [NuxtHub docs](https://hub.nuxt.com)
