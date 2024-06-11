@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useMagicKeys } from '@vueuse/core'
 import SignaturePad from 'signature_pad'
 
 const props = defineProps({
@@ -21,6 +20,12 @@ const emit = defineEmits(['save'])
 const canPost = ref(false)
 const canvas = ref()
 const signaturePad = ref()
+const { metaSymbol } = useShortcuts()
+
+defineShortcuts({
+  meta_z: undo,
+  meta_k: clear,
+})
 
 onMounted(() => {
   signaturePad.value = new SignaturePad(canvas.value, {
@@ -37,14 +42,7 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeCanvas)
-})
-
-const { metaSymbol } = useShortcuts()
-const { meta, z, k } = useMagicKeys()
-
-watchEffect(() => {
-  if (meta.value && z.value) undo()
-  if (meta.value && k.value) clear()
+  signaturePad.value?.off()
 })
 
 function resizeCanvas() {
