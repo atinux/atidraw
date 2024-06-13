@@ -15,7 +15,7 @@ const { data: drawings } = await useFetch('/api/drawings')
         <img
           :src="`/drawings/${drawing.pathname}`"
           :alt="drawing.pathname"
-          class="max-w-[400px] max-h-[400px] w-full h-full rounded"
+          class="max-w-[400px] w-full rounded aspect-1"
           loading="lazy"
         >
         <div class="flex items-center justify-between max-w-[400px]">
