@@ -18,10 +18,10 @@
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/ui": "^2.16.0",
     "@nuxt/ui-pro": "^1.2.0",
-    "@nuxthub/core": "^0.6.11",
-    "@vueuse/components": "^10.10.0",
-    "@vueuse/core": "^10.10.0",
-    "nuxt": "^3.12.0",
+    "@nuxthub/core": "^0.6.14",
+    "@vueuse/components": "^10.11.0",
+    "@vueuse/core": "^10.11.0",
+    "nuxt": "^3.12.1",
     "nuxt-auth-utils": "^0.0.25",
     "signature_pad": "^5.0.2"
   },
@@ -29,6 +29,6 @@
     "@nuxt/eslint-config": "^0.3.13",
     "eslint": "^9.4.0",
     "vue-tsc": "^2.0.21",
-    "wrangler": "^3.60.1"
+    "wrangler": "^3.60.2"
   }
 }
