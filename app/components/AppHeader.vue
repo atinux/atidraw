@@ -13,7 +13,7 @@ const { loggedIn, clear } = useUserSession()
     </template>
     <template #right>
       <UButton
-        to="https://github.com/atinux/instadraw"
+        to="https://git.new/draw"
         color="gray"
         variant="ghost"
         icon="i-simple-icons-github"

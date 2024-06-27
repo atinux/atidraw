@@ -2,7 +2,7 @@
 const footerLinks = [
   {
     label: 'Source code',
-    to: 'https://github.com/atinux/instadraw',
+    to: 'https://git.new/draw',
     target: '_blank',
   },
 ]
@@ -35,7 +35,7 @@ const footerLinks = [
     <template #right>
       <UColorModeButton />
       <UButton
-        to="https://github.com/atinux/instadraw"
+        to="https://git.new/draw"
         color="gray"
         variant="ghost"
         icon="i-simple-icons-github"
