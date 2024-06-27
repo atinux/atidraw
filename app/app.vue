@@ -21,4 +21,5 @@ useServerHead({
     </UMain>
   </UContainer>
   <AppFooter />
+  <UNotifications />
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { loggedIn } = useUserSession()
+const toast = useToast()
 
 const authProviders = [
   {
@@ -29,7 +30,20 @@ async function save(dataURL: string) {
   const file = new File([blob], `${dateIn2050 - Date.now()}.jpg`, { type: 'image/jpeg' })
 
   await useUpload('/api/upload')(file)
-  await navigateTo('/')
+  .then(() => {
+    toast.add({
+      title: 'Drawing shared!',
+      description: 'Your drawing has been shared with the world.',
+      color: 'green',
+    })
+    navigateTo('/')
+  }).catch((err) => {
+    toast.add({
+      title: 'Could not share drawing',
+      description: err.data?.message || err.message,
+      color: 'red',
+    })
+  })
   saving.value = false
 }
 </script>
