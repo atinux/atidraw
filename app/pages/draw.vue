@@ -25,11 +25,14 @@ const saving = ref(false)
 
 async function save(dataURL: string) {
   saving.value = true
-  const dateIn2050 = new Date('2050-01-01').getTime()
   const blob = await fetch(dataURL).then(res => res.blob())
-  const file = new File([blob], `${dateIn2050 - Date.now()}.jpg`, { type: 'image/jpeg' })
+  const file = new File([blob], `drawing.jpg`, { type: 'image/jpeg' })
+  const upload = useUpload('/api/upload', {
+    formKey: 'drawing',
+    multiple: false
+  })
 
-  await useUpload('/api/upload')(file)
+  await upload(file)
   .then(() => {
     toast.add({
       title: 'Drawing shared!',
