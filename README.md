@@ -11,6 +11,7 @@ Share your drawings with the world with this [Nuxt application](https://nuxt.com
 - Image upload with [`useUpload()`](https://hub.nuxt.com/docs/storage/blob)
 - Auth with Google & GitHub based on [`nuxt-auth-utils`](https://github.com/Atinux/nuxt-auth-utils)
 - Draw with [`signature_pad`](https://github.com/szimek/signature_pad)
+- Deploy to the Edge with [nuxthub deploy](https://github.com/nuxt-hub/cli) using a [GitHub action](./.github/workflows/deploy.yml)
 
 ## Setup
 

@@ -2,6 +2,7 @@
   "name": "nuxthub-starter",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.1.3",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
