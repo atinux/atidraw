@@ -6,6 +6,8 @@ Share your drawings with the world with this [Nuxt application](https://nuxt.com
 - [NuxtHub docs](https://hub.nuxt.com)
 - [Nuxt docs](https://nuxt.com)
 
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/instadraw)
+
 ## Too lazy to draw?
 
 https://github.com/Atinux/instadraw/assets/904724/85f79def-f633-40b7-97c2-3a8579e65af1
