@@ -2,11 +2,13 @@
 
 Share your drawings with the world with this [Nuxt application](https://nuxt.com) using [NuxtHub Blob storage](https://hub.nuxt.com/docs/storage/blob) (Cloudflare R2) and deployed on the Edge (Cloudflare Pages).
 
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/instadraw)
+
+## Links
+
 - [Demo](https://draw.nuxt.dev)
 - [NuxtHub docs](https://hub.nuxt.com)
 - [Nuxt docs](https://nuxt.com)
-
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/instadraw)
 
 ## Too lazy to draw?
 
