@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2024-07-30',
   extends: ['@nuxt/ui-pro'],
   modules: [
     '@nuxthub/core',
@@ -14,9 +15,6 @@ export default defineNuxtConfig({
   },
   hub: {
     blob: true,
-  },
-  ui: {
-    icons: ['ph', 'simple-icons', 'logos'],
   },
   // Development modules
   eslint: {
