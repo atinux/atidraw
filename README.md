@@ -1,8 +1,8 @@
-# Instadraw
+# Atidraw
 
 Share your drawings with the world with this [Nuxt application](https://nuxt.com) using [NuxtHub Blob storage](https://hub.nuxt.com/docs/storage/blob) (Cloudflare R2) and deployed on the Edge (Cloudflare Pages).
 
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/instadraw)
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/atidraw)
 
 ## Links
 
@@ -12,7 +12,7 @@ Share your drawings with the world with this [Nuxt application](https://nuxt.com
 
 ## Too lazy to draw?
 
-https://github.com/Atinux/instadraw/assets/904724/85f79def-f633-40b7-97c2-3a8579e65af1
+https://github.com/Atinux/atidraw/assets/904724/85f79def-f633-40b7-97c2-3a8579e65af1
 
 Now it's your turn! https://draw.nuxt.dev
 
