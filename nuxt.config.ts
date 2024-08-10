@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   hub: {
+    ai: true,
     blob: true,
   },
   // Development modules
