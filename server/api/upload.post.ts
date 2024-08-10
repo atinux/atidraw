@@ -3,13 +3,16 @@ export default eventHandler(async (event) => {
   const { user } = await requireUserSession(event)
 
   // Check last image author
-  const { blobs } = await hubBlob().list({ limit: 1 })
+  const { blobs } = await hubBlob().list({
+    prefix: 'drawings/',
+    limit: 1,
+  })
   if (!import.meta.dev && blobs.length) {
     const [lastDrawing] = blobs
     if (lastDrawing.customMetadata?.userId === user.id) {
       throw createError({
         statusCode: 400,
-        message: 'You cannot upload two drawings in a row. Please wait for someone else to draw an image.'
+        message: 'You cannot upload two drawings in a row. Please wait for someone else to draw an image.',
       })
     }
   }
@@ -20,7 +23,7 @@ export default eventHandler(async (event) => {
 
   ensureBlob(drawing, {
     maxSize: '1MB',
-    types: ['image/jpeg']
+    types: ['image/jpeg'],
   })
 
   // Ask LLaVA to describe the drawing
@@ -44,14 +47,14 @@ export default eventHandler(async (event) => {
     strength: 0.75,
     image: [...new Uint8Array(await drawing.arrayBuffer())],
   })
-  .then(blob => {
-    return hubBlob().put(`${name}.png`, blob, {
-      prefix: 'ai/',
-      addRandomSuffix: true,
-      contentType: 'image/png'
+    .then((blob) => {
+      return hubBlob().put(`${name}.png`, blob, {
+        prefix: 'ai/',
+        addRandomSuffix: true,
+        contentType: 'image/png',
+      })
     })
-  })
-  .catch(() => null)
+    .catch(() => null)
 
   return hubBlob().put(`${name}.jpg`, drawing, {
     prefix: 'drawings/',
@@ -63,7 +66,7 @@ export default eventHandler(async (event) => {
       userAvatar: user.avatar,
       userUrl: user.url,
       description: description.trim(),
-      aiImage: aiImage ? aiImage.pathname : ''
-    }
+      aiImage: aiImage ? aiImage.pathname : '',
+    },
   })
 })

@@ -19,7 +19,8 @@ export default eventHandler(async (event) => {
     return { description: '' }
   })
 
-  await setHeader(event, 'x-description', description)
+  setHeader(event, 'content-type', 'image/png')
+  setHeader(event, 'x-description', description)
   return await hubAI().run('@cf/runwayml/stable-diffusion-v1-5-img2img', {
     prompt: description || 'Make it a painting.',
     guidance: 8,

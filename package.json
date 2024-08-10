@@ -17,7 +17,7 @@
     "@iconify-json/simple-icons": "^1.1.112",
     "@nuxt/eslint": "^0.5.0",
     "@nuxt/ui": "^2.18.4",
-    "@nuxthub/core": "https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@476a418",
+    "@nuxthub/core": "https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@91e945d",
     "@vueuse/components": "^10.11.1",
     "@vueuse/core": "^10.11.1",
     "nuxt": "^3.12.4",

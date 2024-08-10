@@ -14,13 +14,12 @@ async function generateDrawing() {
   const blob = await fetch(props.drawing).then(res => res.blob())
   const form = new FormData()
   form.append('drawing', new File([blob], `drawing.jpg`, { type: 'image/jpeg' }))
-  $fetch.raw('/api/generate', {
+  $fetch.raw<Blob>('/api/generate', {
     method: 'POST',
     body: form,
   }).then((res) => {
-    console.log(res.headers.get('x-description'))
     drawingDescription.value = res.headers.get('x-description') || ''
-    generatedImage.value = URL.createObjectURL(res._data)
+    generatedImage.value = URL.createObjectURL(res._data as Blob)
     generating.value = false
   }).catch((err) => {
     if (!err.status) return
