@@ -1,27 +1,13 @@
 <script setup lang="ts">
 const { loggedIn } = useUserSession()
+const runtimeConfig = useRuntimeConfig()
 const toast = useToast()
-
-const authProviders = [
-  {
-    label: 'Sign-in with Google',
-    icon: 'i-logos-google-icon',
-    color: 'white',
-    size: 'lg',
-    to: '/auth/google',
-    external: true,
-  },
-  {
-    label: 'Sign-in with GitHub',
-    icon: 'i-simple-icons-github',
-    color: 'black',
-    size: 'lg',
-    to: '/auth/github',
-    external: true,
-  },
-]
-
 const saving = ref(false)
+const drawing = ref('')
+
+function onDraw(dataURL: string) {
+  drawing.value = dataURL
+}
 
 async function save(dataURL: string) {
   saving.value = true
@@ -29,61 +15,98 @@ async function save(dataURL: string) {
   const file = new File([blob], `drawing.jpg`, { type: 'image/jpeg' })
   const upload = useUpload('/api/upload', {
     formKey: 'drawing',
-    multiple: false
+    multiple: false,
   })
 
   await upload(file)
-  .then(() => {
-    toast.add({
-      title: 'Drawing shared!',
-      description: 'Your drawing has been shared with the world.',
-      color: 'green',
+    .then(() => {
+      toast.add({
+        title: 'Drawing shared!',
+        description: 'Your drawing has been shared with the world.',
+        color: 'green',
+      })
+      navigateTo('/')
+    }).catch((err) => {
+      toast.add({
+        title: 'Could not share drawing',
+        description: err.data?.message || err.message,
+        color: 'red',
+      })
     })
-    navigateTo('/')
-  }).catch((err) => {
-    toast.add({
-      title: 'Could not share drawing',
-      description: err.data?.message || err.message,
-      color: 'red',
-    })
-  })
   saving.value = false
 }
 </script>
 
 <template>
-  <UPageBody>
-    <p class="text-center pb-4">
-      Create a drawing and share it with the world!
-    </p>
-    <div class="max-w-[400px] mx-auto">
-      <DrawPad
-        v-if="loggedIn"
-        save-label="Share"
-        :saving="saving"
-        @save="save"
-      />
-      <UAuthForm
+  <div class="my-8">
+    <div class="mx-auto max-w-[400px]">
+      <p class="text-center pb-4">
+        Create a drawing and share it with the world!
+      </p>
+      <div v-if="loggedIn">
+        <DrawPad
+          save-label="Share"
+          :saving="saving"
+          class="max-w-[400px]"
+          @save="save"
+          @draw="onDraw"
+        />
+        <!-- <AIDraw :drawing="drawing" class="mt-4" /> -->
+      </div>
+      <div
         v-else
-        :providers="authProviders"
+        class="w-full max-w-sm space-y-6"
       >
-        <template
-          #footer
-        >
-          <p class="text-center">
-            No personal informations regarding your GitHub or Google account are stored in database.
-            Only your drawings created are stored with your username and avatar from these providers. Checkout the <UButton
-              to="https://git.new/draw"
-              variant="link"
+        <div class="gap-y-6 flex flex-col">
+          <div class="space-y-3">
+            <UButton
+              v-if="runtimeConfig.public.googleAuth"
+              to="/auth/google"
+              label="Sign-in with Google"
+              icon="i-logos-google-icon"
+              color="white"
+              size="lg"
+              external
+              block
+            />
+            <UButton
+              v-if="runtimeConfig.public.githubAuth"
+              to="/auth/github"
+              label="Sign-in with GitHub"
+              icon="i-simple-icons-github"
               color="black"
-              :padded="false"
-              target="_blank"
-            >
-              source code
-            </UButton> of this application.
-          </p>
-        </template>
-      </UAuthForm>
+              size="lg"
+              external
+              block
+            />
+            <UButton
+              v-if="!runtimeConfig.public.githubAuth && !runtimeConfig.public.googleAuth"
+              to="/auth/anonymous"
+              label="Sign-in anonymously"
+              icon="i-ph-mask-happy-duotone"
+              color="black"
+              size="lg"
+              external
+              block
+            />
+          </div>
+        </div>
+        <p
+          v-if="runtimeConfig.public.googleAuth || runtimeConfig.public.githubAuth"
+          class="text-center"
+        >
+          No personal informations regarding your GitHub or Google account are stored in database.
+          Only your drawings created are stored with your username and avatar from these providers. Checkout the <UButton
+            to="https://git.new/draw"
+            variant="link"
+            color="black"
+            :padded="false"
+            target="_blank"
+          >
+            source code
+          </UButton> of this application.
+        </p>
+      </div>
     </div>
-  </UPageBody>
+  </div>
 </template>

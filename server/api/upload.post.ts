@@ -4,7 +4,7 @@ export default eventHandler(async (event) => {
 
   // Check last image author
   const { blobs } = await hubBlob().list({ limit: 1 })
-  if (blobs.length) {
+  if (!import.meta.dev && blobs.length) {
     const [lastDrawing] = blobs
     if (lastDrawing.customMetadata?.userId === user.id) {
       throw createError({
@@ -23,13 +23,38 @@ export default eventHandler(async (event) => {
     types: ['image/jpeg']
   })
 
+  // Ask LLaVA to describe the drawing
+  const { description } = await hubAI().run('@cf/llava-hf/llava-1.5-7b-hf', {
+    prompt: 'Describe this drawing in one sentence.',
+    image: [...new Uint8Array(await drawing.arrayBuffer())],
+  }).catch(() => {
+    return { description: '' }
+  })
+
   // Create a new pathname to be smaller than the last one uploaded
   // So the blob listing will send the last uploaded image at first
   // We use the timestamp in 2050 minus the current timestamp
   // So this project will start to be buggy in 2050, sorry for that
-  const pathname = `${new Date('2050-01-01').getTime() - Date.now()}.jpg`
+  const name = `${new Date('2050-01-01').getTime() - Date.now()}`
 
-  return hubBlob().put(pathname, drawing, {
+  // Generate an image with AI
+  const aiImage = await hubAI().run('@cf/runwayml/stable-diffusion-v1-5-img2img', {
+    prompt: description || 'A drawing',
+    guidance: 8,
+    strength: 0.75,
+    image: [...new Uint8Array(await drawing.arrayBuffer())],
+  })
+  .then(blob => {
+    return hubBlob().put(`${name}.png`, blob, {
+      prefix: 'ai/',
+      addRandomSuffix: true,
+      contentType: 'image/png'
+    })
+  })
+  .catch(() => null)
+
+  return hubBlob().put(`${name}.jpg`, drawing, {
+    prefix: 'drawings/',
     addRandomSuffix: true,
     customMetadata: {
       userProvider: user.provider,
@@ -37,6 +62,8 @@ export default eventHandler(async (event) => {
       userName: user.name,
       userAvatar: user.avatar,
       userUrl: user.url,
+      description: description.trim(),
+      aiImage: aiImage ? aiImage.pathname : ''
     }
   })
 })

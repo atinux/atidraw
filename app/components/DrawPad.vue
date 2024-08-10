@@ -15,7 +15,7 @@ const props = defineProps({
     default: false,
   },
 })
-const emit = defineEmits(['save'])
+const emit = defineEmits(['draw', 'save'])
 
 const canPost = ref(false)
 const canvas = ref()
@@ -38,6 +38,11 @@ onMounted(() => {
   resizeCanvas()
   signaturePad.value.addEventListener('afterUpdateStroke', () => {
     canPost.value = !signaturePad.value.isEmpty()
+  })
+  signaturePad.value.addEventListener('endStroke', () => {
+    if (!signaturePad.value || signaturePad.value.isEmpty() || props.saving) return
+    const dataURL = signaturePad.value.toDataURL(props.saveType)
+    emit('draw', dataURL)
   })
 })
 onBeforeUnmount(() => {
