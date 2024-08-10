@@ -71,6 +71,9 @@ Unlock the full potential of Atidraw by enabling the AI image generation feature
    - <!-- <AIDraw :drawing="drawing" class="mt-4" /> -->
    + <AIDraw :drawing="drawing" class="mt-4" />
    ```
+3. Open http://localhost:3000/draw to draw something and click on "Draw with AI"
+
+https://github.com/user-attachments/assets/1ff6b3fd-3dbb-45de-8c3a-648aee8b28b0
 
 ## 🏎️ How does it work?
 
