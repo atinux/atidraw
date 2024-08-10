@@ -24,29 +24,33 @@ const authProviders = [
 const saving = ref(false)
 
 async function save(dataURL: string) {
+  if (saving.value) return
   saving.value = true
+  // Transform the dataURL to a Blob
   const blob = await fetch(dataURL).then(res => res.blob())
-  const file = new File([blob], `drawing.jpg`, { type: 'image/jpeg' })
-  const upload = useUpload('/api/upload', {
-    formKey: 'drawing',
-    multiple: false
-  })
+  // Create the form data
+  const form = new FormData()
+  form.append('drawing', new File([blob], `drawing.jpg`, { type: 'image/jpeg' }))
 
-  await upload(file)
-  .then(() => {
-    toast.add({
-      title: 'Drawing shared!',
-      description: 'Your drawing has been shared with the world.',
-      color: 'green',
-    })
-    navigateTo('/')
-  }).catch((err) => {
-    toast.add({
-      title: 'Could not share drawing',
-      description: err.data?.message || err.message,
-      color: 'red',
-    })
+  // Upload the file to the server
+  await $fetch('/api/upload', {
+    method: 'POST',
+    body: form,
   })
+    .then(() => {
+      toast.add({
+        title: 'Drawing shared!',
+        description: 'Your drawing has been shared with the world.',
+        color: 'green',
+      })
+      navigateTo('/')
+    }).catch((err) => {
+      toast.add({
+        title: 'Could not share drawing',
+        description: err.data?.message || err.message,
+        color: 'red',
+      })
+    })
   saving.value = false
 }
 </script>
