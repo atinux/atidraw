@@ -27,8 +27,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0(focus-trap@7.5.4)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))(vue@3.4.34(typescript@5.4.5))
       '@nuxthub/core':
-        specifier: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@476a418
-        version: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@476a418(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
+        specifier: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@7aebc93
+        version: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@7aebc93(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
       '@vueuse/components':
         specifier: ^10.11.0
         version: 10.11.0(vue@3.4.34(typescript@5.4.5))
@@ -1083,8 +1083,8 @@ packages:
     peerDependencies:
       vue: ^3.3.4
 
-  '@nuxthub/core@https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@476a418':
-    resolution: {tarball: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@476a418}
+  '@nuxthub/core@https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@7aebc93':
+    resolution: {tarball: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@7aebc93}
     version: 0.7.1
 
   '@nuxtjs/color-mode@3.4.2':
@@ -5911,7 +5911,7 @@ snapshots:
       - vti
       - vue-tsc
 
-  '@nuxthub/core@https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@476a418(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))':
+  '@nuxthub/core@https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@7aebc93(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))':
     dependencies:
       '@cloudflare/workers-types': 4.20240806.0
       '@nuxt/devtools-kit': 1.3.9(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
