@@ -95,7 +95,7 @@ Or locally with the [NuxtHub CLI](https://github.com/nuxt-hub/cli):
 npx nuxthub deploy
 ```
 
-This command will deploy your Atidraw instance to your Cloudflare account and provision a Cloudflare R2 bucket. You will also get a free `<you-app>.nuxt.dev` subdomain.
+This command will deploy your Atidraw instance to your Cloudflare account and provision a Cloudflare R2 bucket. You will also get a free `<you-app>.nuxt.dev` domain.
 
 Once deployed, you can manage your users' masterpieces in the [NuxtHub Admin](https://admin.hub.nuxt.com).
 
