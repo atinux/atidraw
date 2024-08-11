@@ -9,7 +9,7 @@ export default eventHandler(async (event) => {
     if (lastDrawing.customMetadata?.userId === user.id) {
       throw createError({
         statusCode: 400,
-        message: 'You cannot upload two drawings in a row. Please wait for someone else to draw an image.'
+        message: 'You cannot upload two drawings in a row. Please wait for someone else to draw an image.',
       })
     }
   }
@@ -20,7 +20,7 @@ export default eventHandler(async (event) => {
 
   ensureBlob(drawing, {
     maxSize: '1MB',
-    types: ['image/jpeg']
+    types: ['image/jpeg'],
   })
 
   // Create a new pathname to be smaller than the last one uploaded
@@ -37,6 +37,6 @@ export default eventHandler(async (event) => {
       userName: user.name,
       userAvatar: user.avatar,
       userUrl: user.url,
-    }
+    },
   })
 })
