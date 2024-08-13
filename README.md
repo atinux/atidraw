@@ -30,8 +30,15 @@ Ready to create? Visit [draw.nuxt.dev](https://draw.nuxt.dev) and share your bes
 - [Nuxt UI](https://github.com/nuxt/ui) - Beautiful UI library with TailwindCSS
 - [Nuxt Auth Utils](https://github.com/Atinux/nuxt-auth-utils) - Simplified Authentication
 - [NuxtHub](https://hub.nuxt.com) - Build & deploy to your Cloudflare account with zero configuration
-  - [`hubBlob()`](https://hub.nuxt.com/docs/features/blob) to store drawing on R2
-  - [`hubAI()`](https://hub.nuxt.com/docs/features/ai) to run AI on drawings
+  - [`hubBlob()`](https://hub.nuxt.com/docs/features/blob) to store drawing on Cloudflare R2
+  - [`hubAI()`](https://hub.nuxt.com/docs/features/ai) to run Cloudflare AI on user's drawing
+- [`npx nuxthub deploy`](https://github.com/nuxt-hub/cli) - To deploy the app on your Cloudflare account for free
+
+## 🏎️ How does it work?
+
+I wrote two articles about how I created Atidraw:
+- [Code, Draw, Deploy: A drawing app with Nuxt & Cloudflare R2](https://hub.nuxt.com/blog/drawing-app-with-nuxt-and-cloudflare-r2)
+- [Using Cloudflare AI Models for User Experience](https://hub.nuxt.com/blog/cloudflare-ai-for-user-experience)
 
 ## 🚀 Quick Start
 
@@ -74,12 +81,6 @@ Unlock the full potential of Atidraw by enabling the AI image generation feature
 3. Open http://localhost:3000/draw to draw something and click on "Draw with AI"
 
 https://github.com/user-attachments/assets/1ff6b3fd-3dbb-45de-8c3a-648aee8b28b0
-
-## 🏎️ How does it work?
-
-I wrote two articles about how I created Atidraw:
-- [Code, Draw, Deploy: A drawing app with Nuxt & Cloudflare R2](https://hub.nuxt.com/blog/drawing-app-with-nuxt-and-cloudflare-r2)
-- [Using Cloudflare AI Models for User Experience](https://hub.nuxt.com/blog/cloudflare-ai-for-user-experience)
 
 ## 🌐 Deploy to the World for Free
 

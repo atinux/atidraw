@@ -10,15 +10,19 @@ function onDraw(dataURL: string) {
 }
 
 async function save(dataURL: string) {
+  if (saving.value) return
   saving.value = true
+  // Transform the dataURL to a Blob
   const blob = await fetch(dataURL).then(res => res.blob())
-  const file = new File([blob], `drawing.jpg`, { type: 'image/jpeg' })
-  const upload = useUpload('/api/upload', {
-    formKey: 'drawing',
-    multiple: false,
-  })
+  // Create the form data
+  const form = new FormData()
+  form.append('drawing', new File([blob], `drawing.jpg`, { type: 'image/jpeg' }))
 
-  await upload(file)
+  // Upload the file to the server
+  await $fetch('/api/upload', {
+    method: 'POST',
+    body: form,
+  })
     .then(() => {
       toast.add({
         title: 'Drawing shared!',
