@@ -19,7 +19,7 @@
     "@nuxt/eslint": "^0.4.0",
     "@nuxt/ui": "^2.18.3",
     "@nuxt/ui-pro": "^1.4.0",
-    "@nuxthub/core": "https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@7aebc93",
+    "@nuxthub/core": "^0.7.2",
     "@vueuse/components": "^10.11.0",
     "@vueuse/core": "^10.11.0",
     "nuxt": "^3.12.4",
