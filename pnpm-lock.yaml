@@ -24,8 +24,8 @@ importers:
         specifier: ^2.18.4
         version: 2.18.4(focus-trap@7.5.4)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))(vue@3.4.34(typescript@5.4.5))
       '@nuxthub/core':
-        specifier: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@91e945d
-        version: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@91e945d(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
+        specifier: ^0.7.2
+        version: 0.7.2(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
       '@vueuse/components':
         specifier: ^10.11.1
         version: 10.11.1(vue@3.4.34(typescript@5.4.5))
@@ -36,8 +36,8 @@ importers:
         specifier: ^3.12.4
         version: 3.12.4(@parcel/watcher@2.4.1)(@types/node@22.0.0)(encoding@0.1.13)(eslint@9.9.0(jiti@1.21.6))(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.19.1)(terser@5.31.3)(typescript@5.4.5)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))(vue-tsc@2.0.29(typescript@5.4.5))
       nuxt-auth-utils:
-        specifier: ^0.3.3
-        version: 0.3.3(magicast@0.3.4)(rollup@4.19.1)
+        specifier: ^0.3.4
+        version: 0.3.4(magicast@0.3.4)(rollup@4.19.1)
       signature_pad:
         specifier: ^5.0.2
         version: 5.0.2
@@ -52,8 +52,8 @@ importers:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.4.5)
       wrangler:
-        specifier: ^3.70.0
-        version: 3.70.0(@cloudflare/workers-types@4.20240806.0)
+        specifier: ^3.71.0
+        version: 3.71.0(@cloudflare/workers-types@4.20240806.0)
 
 packages:
 
@@ -1084,9 +1084,8 @@ packages:
     peerDependencies:
       vue: ^3.3.4
 
-  '@nuxthub/core@https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@91e945d':
-    resolution: {tarball: https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@91e945d}
-    version: 0.7.1
+  '@nuxthub/core@0.7.2':
+    resolution: {integrity: sha512-9X+R/tj+4zM3muQF6hcG3v0cojyPLKzA557aisxx58hP2uVMpOarSJCtV/ieqrO7uyzKFYl53KehemZpBXUyXQ==}
 
   '@nuxtjs/color-mode@3.4.2':
     resolution: {integrity: sha512-6A+lDP8R6fFXc1Ip5tDepKq9MJW6oxbRlz1plvW52yacnpeDFXv5S5rDS0ax31AuSFUPlgzHymFSdjcylBwZ6w==}
@@ -3424,8 +3423,8 @@ packages:
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
 
-  nuxt-auth-utils@0.3.3:
-    resolution: {integrity: sha512-Th+RO+IESJ07uPX3MLfimGSyM3CZsyP0DCQhInXeOSNmURDE3OWdbPneygPxzk4ITLZ8snKXM/mPNoSl5fiiAw==}
+  nuxt-auth-utils@0.3.4:
+    resolution: {integrity: sha512-0CNREFADCyZtyAusV3n27y1jnvt2KjrZI2boaMbKPDWiyI8AcV1jESG1aBFOxyViKsF4YnXRY8QN3EJKYvxMjA==}
 
   nuxt@3.12.4:
     resolution: {integrity: sha512-/ddvyc2kgYYIN2UEjP8QIz48O/W3L0lZm7wChIDbOCj0vF/yLLeZHBaTb3aNvS9Hwp269nfjrm8j/mVxQK4RhA==}
@@ -4727,8 +4726,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.70.0:
-    resolution: {integrity: sha512-aMtCEXmH02SIxbxOFGGuJ8ZemmG9W+IcNRh5D4qIKgzSxqy0mt9mRoPNPSv1geGB2/8YAyeLGPf+tB4lxz+ssg==}
+  wrangler@3.71.0:
+    resolution: {integrity: sha512-WHWBmU2z0p1hRtSIIP5HEeoR+6aNpuZR82HMXAwpfeiyijjfkMyt/TUs8gvIOKC3x3+ETQQIdVeX2al5KtrIxQ==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -5918,7 +5917,7 @@ snapshots:
       - vti
       - vue-tsc
 
-  '@nuxthub/core@https://pkg.pr.new/nuxt-hub/core/@nuxthub/core@91e945d(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))':
+  '@nuxthub/core@0.7.2(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))':
     dependencies:
       '@cloudflare/workers-types': 4.20240806.0
       '@nuxt/devtools-kit': 1.3.9(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
@@ -8584,7 +8583,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  nuxt-auth-utils@0.3.3(magicast@0.3.4)(rollup@4.19.1):
+  nuxt-auth-utils@0.3.4(magicast@0.3.4)(rollup@4.19.1):
     dependencies:
       '@nuxt/kit': 3.12.4(magicast@0.3.4)(rollup@4.19.1)
       defu: 6.1.4
@@ -10041,7 +10040,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20240806.0
       '@cloudflare/workerd-windows-64': 1.20240806.0
 
-  wrangler@3.70.0(@cloudflare/workers-types@4.20240806.0):
+  wrangler@3.71.0(@cloudflare/workers-types@4.20240806.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/workers-shared': 0.1.0
