@@ -1,7 +1,5 @@
-name: Deploy to Cloudflare with NuxtHub Cli
-on:
-  push:
-    branches: ['main']
+name: Deploy with NuxtHub CLI
+on: push
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -36,4 +34,3 @@ jobs:
         env:
           NUXT_HUB_PROJECT_KEY: ${{ secrets.NUXT_HUB_PROJECT_KEY}}
           NUXT_HUB_USER_TOKEN: ${{ secrets.NUXT_HUB_USER_TOKEN }}
-          NUXT_UI_PRO_LICENSE: ${{ secrets.NUXT_UI_PRO_LICENSE }}
