@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name:  Deploy with nuxt-hub cli
+      - name:  Deploy with nuxthub
         run: npx nuxthub deploy
         env:
           NUXT_HUB_PROJECT_KEY: ${{ secrets.NUXT_HUB_PROJECT_KEY}}
