@@ -47,7 +47,14 @@ export default eventHandler(async (event) => {
     strength: 0.75,
     image: [...new Uint8Array(await drawing.arrayBuffer())],
   })
-    .then((blob) => {
+    .then((blob: Blob | Uint8Array) => {
+      if (blob instanceof Uint8Array) {
+        blob = new Blob([blob])
+      }
+      // If black image, skip
+      if (blob.size === 842) {
+        return null
+      }
       return hubBlob().put(`${name}.png`, blob, {
         prefix: 'ai/',
         addRandomSuffix: true,

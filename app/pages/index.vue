@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { BlobObject } from '@nuxthub/core'
 import { UseTimeAgo, vInfiniteScroll } from '@vueuse/components'
 
 const { data } = await useFetch('/api/drawings', {
@@ -19,6 +20,14 @@ async function loadMore() {
   data.value.hasMore = more.hasMore
   loading.value = false
 }
+
+function drawingTitle(drawing: BlobObject) {
+  const title = drawing.customMetadata?.description || ''
+  if (!drawing.customMetadata?.aiImage) {
+    return title + '\n[AI image could not be generated]'
+  }
+  return title
+}
 </script>
 
 <template>
@@ -31,7 +40,7 @@ async function loadMore() {
       >
         <div
           class="group relative max-w-[400px]"
-          :title="drawing.customMetadata?.description || ''"
+          :title="drawingTitle(drawing)"
         >
           <img
             :src="`/drawings/${drawing.pathname}`"
