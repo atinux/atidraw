@@ -72,7 +72,7 @@ function drawingTitle(drawing: BlobObject) {
           </NuxtLink>
           <UseTimeAgo
             v-slot="{ timeAgo }"
-            :time="new Date(drawing.uploadedAt)"
+            :time="new Date(drawing.customMetadata?.uploadedAt || drawing.uploadedAt)"
           >
             <span class="text-xs text-gray-500">{{ timeAgo }}</span>
           </UseTimeAgo>
