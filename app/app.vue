@@ -1,8 +1,8 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Instadraw',
-  description: 'Create a drawing and share it with the world!',
-  ogTitle: 'Instadraw',
+  title: 'Draw and share your Art with Atidraw',
+  description: 'Atidraw is a web application that lets you to create, enhance, and share your drawings with the world. Harnessing the power of Cloudflare R2 and Cloudflare AI to store and enhance your drawings.',
+  ogTitle: 'Atidraw',
   ogImage: 'https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL2RyYXcubnV4dC5kZXYiLCJpYXQiOjE3MTgwMTc3OTF9.ORrHGOCvTaxN7Lk24swRO7k-mrHmExypBquOA8FUlyg.jpg?theme=light',
   twitterCard: 'summary_large_image',
 })
@@ -16,9 +16,9 @@ useServerHead({
 <template>
   <AppHeader />
   <UContainer>
-    <UMain>
+    <main class="min-h-[calc(100vh-192px)]">
       <NuxtPage />
-    </UMain>
+    </main>
   </UContainer>
   <AppFooter />
   <UNotifications />

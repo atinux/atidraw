@@ -3,6 +3,7 @@ export default eventHandler(async (event) => {
 
   return hubBlob().list({
     limit: 100,
-    cursor
+    cursor,
+    prefix: 'drawings/',
   })
 })
