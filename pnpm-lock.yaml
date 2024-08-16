@@ -24,8 +24,8 @@ importers:
         specifier: ^2.18.4
         version: 2.18.4(focus-trap@7.5.4)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))(vue@3.4.34(typescript@5.4.5))
       '@nuxthub/core':
-        specifier: ^0.7.2
-        version: 0.7.2(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
+        specifier: ^0.7.3
+        version: 0.7.3(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
       '@vueuse/components':
         specifier: ^10.11.1
         version: 10.11.1(vue@3.4.34(typescript@5.4.5))
@@ -1084,8 +1084,8 @@ packages:
     peerDependencies:
       vue: ^3.3.4
 
-  '@nuxthub/core@0.7.2':
-    resolution: {integrity: sha512-9X+R/tj+4zM3muQF6hcG3v0cojyPLKzA557aisxx58hP2uVMpOarSJCtV/ieqrO7uyzKFYl53KehemZpBXUyXQ==}
+  '@nuxthub/core@0.7.3':
+    resolution: {integrity: sha512-hP/gB3BAgQGl1lROtIBgPAQQWIQPOuUYPDm7rLQLD+VFuBwlvWYE9yIUR8yaQulzwvIMBiUSzrk0/iPMvqOgUg==}
 
   '@nuxtjs/color-mode@3.4.2':
     resolution: {integrity: sha512-6A+lDP8R6fFXc1Ip5tDepKq9MJW6oxbRlz1plvW52yacnpeDFXv5S5rDS0ax31AuSFUPlgzHymFSdjcylBwZ6w==}
@@ -5917,7 +5917,7 @@ snapshots:
       - vti
       - vue-tsc
 
-  '@nuxthub/core@0.7.2(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))':
+  '@nuxthub/core@0.7.3(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))':
     dependencies:
       '@cloudflare/workers-types': 4.20240806.0
       '@nuxt/devtools-kit': 1.3.9(magicast@0.3.4)(rollup@4.19.1)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
