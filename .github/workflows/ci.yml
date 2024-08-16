@@ -34,3 +34,5 @@ jobs:
         env:
           NUXT_HUB_PROJECT_KEY: ${{ secrets.NUXT_HUB_PROJECT_KEY}}
           NUXT_HUB_USER_TOKEN: ${{ secrets.NUXT_HUB_USER_TOKEN }}
+          GH_AUTH: 1
+          GOOGLE_AUTH: 1
