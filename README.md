@@ -6,7 +6,7 @@ The application is running with server-side rendering on the edge using Cloudfla
 
 You can deploy it with zero configuration on your Cloudflare account using NuxtHub:
 
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/atidraw)
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?template=atidraw)
 
 ### 🚀 Key Features
 
