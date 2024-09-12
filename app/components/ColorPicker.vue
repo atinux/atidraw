@@ -49,7 +49,7 @@ function setColor(hex: string) {
     <template #panel>
       <div class="p-2">
         <div class="grid grid-cols-6 gap-px">
-          <div
+          <button
             v-for="color in colors"
             :key="color"
             class="w-5 h-5 rounded-full border-2 hover:border-gray-200 cursor-pointer"
@@ -62,7 +62,7 @@ function setColor(hex: string) {
         <hr class="border-gray-200 dark:border-gray-800 my-2">
 
         <div class="grid grid-cols-6 gap-px">
-          <div
+          <button
             v-for="color in grayColors"
             :key="color"
             class="w-5 h-5 rounded-full border-2 hover:border-gray-200 cursor-pointer"
