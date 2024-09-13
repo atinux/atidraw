@@ -41,7 +41,7 @@ function setSize(size: number) {
     <template #panel>
       <div class="p-2">
         <div class="flex flex-col gap-2">
-          <div
+          <button
             v-for="size in sizes"
             :key="size"
             class="w-full rounded-full border-2 hover:border-gray-400 cursor-pointer"
