@@ -1,4 +1,4 @@
-export default oauthGoogleEventHandler({
+export default defineOAuthGoogleEventHandler({
   async onSuccess(event, { user }) {
     await setUserSession(event, {
       user: {

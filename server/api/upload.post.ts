@@ -34,6 +34,13 @@ export default eventHandler(async (event) => {
     return { description: '' }
   })
 
+  if (description.includes('penis')) {
+    throw createError({
+      statusCode: 400,
+      message: 'You cannot upload drawings with TEUB.',
+    })
+  }
+
   // Create a new pathname to be smaller than the last one uploaded
   // So the blob listing will send the last uploaded image at first
   // We use the timestamp in 2050 minus the current timestamp
