@@ -2,7 +2,7 @@
   "name": "atidraw",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@9.12.3",
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
@@ -12,22 +12,22 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@iconify-json/logos": "^1.2.3",
-    "@iconify-json/ph": "^1.2.1",
-    "@iconify-json/simple-icons": "^1.2.10",
-    "@nuxt/eslint": "^0.6.1",
-    "@nuxt/ui": "^2.18.7",
-    "@nuxthub/core": "^0.8.5",
-    "@vueuse/components": "^11.2.0",
-    "@vueuse/core": "^11.2.0",
-    "nuxt": "^3.14.0",
-    "nuxt-auth-utils": "^0.5.1",
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.20",
+    "@nuxt/eslint": "^0.7.5",
+    "@nuxt/ui": "^2.21.0",
+    "@nuxthub/core": "^0.8.11",
+    "@vueuse/components": "^12.4.0",
+    "@vueuse/core": "^12.4.0",
+    "nuxt": "^3.15.2",
+    "nuxt-auth-utils": "^0.5.7",
     "signature_pad": "^5.0.4"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "^0.6.1",
-    "eslint": "^9.14.0",
-    "vue-tsc": "^2.1.10",
-    "wrangler": "^3.84.1"
+    "@nuxt/eslint-config": "^0.7.5",
+    "eslint": "^9.18.0",
+    "vue-tsc": "^2.2.0",
+    "wrangler": "^3.102.0"
   }
 }
