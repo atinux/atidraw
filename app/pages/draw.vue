@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { loggedIn } = useUserSession()
-const runtimeConfig = useRuntimeConfig()
+const authProviders = useState<{ google: boolean, github: boolean }>('authProviders')
 const toast = useToast()
 const saving = ref(false)
 const drawing = ref('')
@@ -64,7 +64,7 @@ async function save(dataURL: string) {
         <div class="gap-y-6 flex flex-col">
           <div class="space-y-3">
             <UButton
-              v-if="runtimeConfig.public.googleAuth"
+              v-if="authProviders.google"
               to="/auth/google"
               label="Sign-in with Google"
               icon="i-logos-google-icon"
@@ -74,7 +74,7 @@ async function save(dataURL: string) {
               block
             />
             <UButton
-              v-if="runtimeConfig.public.githubAuth"
+              v-if="authProviders.github"
               to="/auth/github"
               label="Sign-in with GitHub"
               icon="i-simple-icons-github"
@@ -84,7 +84,7 @@ async function save(dataURL: string) {
               block
             />
             <UButton
-              v-if="!runtimeConfig.public.githubAuth && !runtimeConfig.public.googleAuth"
+              v-if="!authProviders.github && !authProviders.google"
               to="/auth/anonymous"
               label="Sign-in anonymously"
               icon="i-ph-mask-happy-duotone"
@@ -96,7 +96,7 @@ async function save(dataURL: string) {
           </div>
         </div>
         <p
-          v-if="runtimeConfig.public.googleAuth || runtimeConfig.public.githubAuth"
+          v-if="authProviders.google || authProviders.github"
           class="text-center"
         >
           No personal informations regarding your GitHub or Google account are stored in database.
