@@ -1,4 +1,4 @@
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   const { oauth } = useRuntimeConfig(useRequestEvent())
 
   // Expose the auth providers to the client
