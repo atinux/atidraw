@@ -74,7 +74,7 @@ function drawingTitle(drawing: BlobObject) {
             v-slot="{ timeAgo }"
             :time="new Date(drawing.customMetadata?.uploadedAt || drawing.uploadedAt)"
           >
-            <span class="text-xs text-gray-500">{{ timeAgo }}</span>
+            <span class="text-xs text-(--ui-text-muted)">{{ timeAgo }}</span>
           </UseTimeAgo>
         </div>
       </div>
@@ -85,7 +85,8 @@ function drawingTitle(drawing: BlobObject) {
       class="flex items-center justify-center mt-2 p-4"
     >
       <UButton
-        color="gray"
+        color="neutral"
+        variant="subtle"
         block
         size="md"
         :loading="loading"

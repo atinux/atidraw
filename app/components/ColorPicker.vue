@@ -28,14 +28,14 @@ function setColor(hex: string) {
 <template>
   <UPopover
     mode="hover"
-    :ui="{ width: 'w-[156px]' }"
+    :ui="{ content: 'w-[156px]' }"
   >
     <template #default="{ open }">
       <UButton
-        color="gray"
+        color="neutral"
         variant="ghost"
         square
-        :class="[open && 'bg-gray-50 dark:bg-gray-800']"
+        :class="[open && 'bg-(--ui-bg-muted)']"
         aria-label="Color picker"
         :icon="icon"
       >
@@ -46,27 +46,27 @@ function setColor(hex: string) {
       </UButton>
     </template>
 
-    <template #panel>
+    <template #content>
       <div class="p-2">
         <div class="grid grid-cols-6 gap-px">
           <button
             v-for="color in colors"
             :key="color"
-            class="w-5 h-5 rounded-full border-2 hover:border-gray-200 cursor-pointer"
-            :class="color === current ? 'border-gray-200' : 'border-white'"
+            class="w-5 h-5 rounded-full border-2 hover:border-neutral-200 cursor-pointer"
+            :class="color === current ? 'border-neutral-200' : 'border-white'"
             :style="{ backgroundColor: color }"
             @click="setColor(color)"
           />
         </div>
 
-        <hr class="border-gray-200 dark:border-gray-800 my-2">
+        <hr class="border-(--ui-border-muted) my-2">
 
         <div class="grid grid-cols-6 gap-px">
           <button
             v-for="color in grayColors"
             :key="color"
-            class="w-5 h-5 rounded-full border-2 hover:border-gray-200 cursor-pointer"
-            :class="color === current ? 'border-gray-200' : 'border-white'"
+            class="w-5 h-5 rounded-full border-2 hover:border-neutral-200 cursor-pointer"
+            :class="color === current ? 'border-neutral-200' : 'border-white'"
             :style="{ backgroundColor: color }"
             @click="setColor(color)"
           />

@@ -20,7 +20,6 @@ const emit = defineEmits(['draw', 'save'])
 const canPost = ref(false)
 const canvas = ref()
 const signaturePad = ref()
-const { metaSymbol } = useShortcuts()
 
 defineShortcuts({
   meta_z: undo,
@@ -100,7 +99,7 @@ async function save() {
   <div class="max-w-[400px]">
     <canvas
       ref="canvas"
-      class="border rounded-md"
+      class="border border-(--ui-border) rounded-md"
     />
     <div class="flex justify-between">
       <div
@@ -120,11 +119,11 @@ async function save() {
       <div class="flex items-center">
         <UTooltip
           text="Undo"
-          :shortcuts="[metaSymbol, 'z']"
+          :kbds="['meta', 'z']"
         >
           <UButton
             variant="ghost"
-            color="gray"
+            color="neutral"
             label="Undo"
             icon="i-ph-arrow-arc-left"
             @click="undo"
@@ -132,11 +131,11 @@ async function save() {
         </UTooltip>
         <UTooltip
           text="Clear"
-          :shortcuts="[metaSymbol, 'k']"
+          :kbds="['meta', 'k']"
         >
           <UButton
             variant="ghost"
-            color="gray"
+            color="neutral"
             icon="i-ph-x"
             label="Clear"
             @click="clear"
@@ -155,7 +154,7 @@ async function save() {
     />
     <UAlert
       class="mt-6"
-      color="amber"
+      color="warning"
       variant="subtle"
       title="This demo is intended for the public. Please note that any sensitive or political drawings will be removed without notice."
     />

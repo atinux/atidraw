@@ -25,7 +25,7 @@ async function generateDrawing() {
     if (!err.status) return
     generating.value = false
     toast.add({
-      color: 'red',
+      color: 'error',
       title: err.data?.message || err.message,
     })
   })
@@ -38,7 +38,8 @@ async function generateDrawing() {
       label="Draw with AI"
       size="md"
       block
-      color="gray"
+      color="neutral"
+      variant="subtle"
       :loading="generating"
       :disabled="!drawing"
       @click="generateDrawing()"
@@ -52,15 +53,15 @@ async function generateDrawing() {
     >
     <USkeleton
       v-else-if="generating"
-      class="w-full h-auto aspect-[1] mt-4 bg-gray-300 dark:bg-gray-700"
+      class="w-full h-auto aspect-[1] mt-4 bg-(--ui-bg-accented)"
     />
     <div
       v-else
-      class="border dark:border-gray-800 rounded w-full h-auto aspect-[1] mt-4 bg-gray-100 dark:bg-gray-800"
+      class="border border-(--ui-border) rounded w-full h-auto aspect-[1] mt-4 bg-(--ui-bg-accented)"
     />
     <USkeleton
       v-if="generating"
-      class="h-6 w-full bg-gray-300 dark:bg-gray-700 mt-4"
+      class="h-6 w-full bg-(--ui-bg-accented) mt-4"
     />
     <div
       v-else-if="drawingDescription"

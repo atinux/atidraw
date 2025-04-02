@@ -68,7 +68,8 @@ async function save(dataURL: string) {
               to="/auth/google"
               label="Sign-in with Google"
               icon="i-logos-google-icon"
-              color="white"
+              color="neutral"
+              variant="outline"
               size="lg"
               external
               block
@@ -78,7 +79,7 @@ async function save(dataURL: string) {
               to="/auth/github"
               label="Sign-in with GitHub"
               icon="i-simple-icons-github"
-              color="black"
+              color="neutral"
               size="lg"
               external
               block
@@ -88,7 +89,7 @@ async function save(dataURL: string) {
               to="/auth/anonymous"
               label="Sign-in anonymously"
               icon="i-ph-mask-happy-duotone"
-              color="black"
+              color="neutral"
               size="lg"
               external
               block
@@ -97,15 +98,15 @@ async function save(dataURL: string) {
         </div>
         <p
           v-if="authProviders.google || authProviders.github"
-          class="text-center"
+          class="text-center text-sm text-(--ui-text-muted)"
         >
           No personal informations regarding your GitHub or Google account are stored in database.
           Only your drawings created are stored with your username and avatar from these providers. Checkout the <UButton
             to="https://git.new/draw"
             variant="link"
-            color="black"
-            :padded="false"
+            color="neutral"
             target="_blank"
+            class="p-0"
           >
             source code
           </UButton> of this application.

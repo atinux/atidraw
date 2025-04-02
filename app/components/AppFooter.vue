@@ -18,9 +18,9 @@ const isDark = computed({
       <div class="lg:flex-1 flex items-center justify-center lg:justify-end gap-x-1.5 lg:order-3">
         <ClientOnly v-if="!colorMode?.forced">
           <UButton
-            :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
+            :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
             :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
-            color="gray"
+            color="neutral"
             variant="ghost"
             @click="isDark = !isDark"
           />
@@ -31,38 +31,32 @@ const isDark = computed({
         </ClientOnly>
         <UButton
           to="https://git.new/draw"
-          color="gray"
+          color="neutral"
           variant="ghost"
           icon="i-simple-icons-github"
         />
         <UButton
           to="https://x.com/atinux"
-          color="gray"
+          color="neutral"
           variant="ghost"
           icon="i-simple-icons-x"
         />
       </div>
       <div class="flex items-center justify-center lg:justify-start lg:flex-1 gap-x-1.5 mt-3 lg:mt-0 lg:order-1">
-        <span class="text-sm">Made with <UButton
+        <span class="text-sm">Made with <ULink
           to="https://nuxt.com/?utm_source=atidraw"
-          variant="link"
-          color="black"
-          :padded="false"
+          class="font-medium hover:underline underline-offset-3"
         >
           Nuxt
-        </UButton>, <UButton
+        </ULink>, <ULink
           to="https://ui.nuxt.com/?utm_source=atidraw"
-          variant="link"
-          color="black"
-          :padded="false"
+          class="font-medium hover:underline underline-offset-3"
         >
           Nuxt UI
-        </UButton> & <UButton
+        </ULink> & <ULink
           to="https://hub.nuxt.com/?utm_source=atidraw"
-          variant="link"
-          color="black"
-          :padded="false"
-        >NuxtHub</UButton>.</span>
+          class="font-medium hover:underline underline-offset-3"
+        >NuxtHub</ULink>.</span>
       </div>
     </UContainer>
   </footer>

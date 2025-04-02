@@ -23,14 +23,14 @@ function setSize(size: number) {
 <template>
   <UPopover
     mode="hover"
-    :ui="{ width: 'w-[156px]' }"
+    :ui="{ content: 'w-[156px]' }"
   >
     <template #default="{ open }">
       <UButton
-        color="gray"
+        color="neutral"
         variant="ghost"
         square
-        :class="[open && 'bg-gray-50 dark:bg-gray-800']"
+        :class="[open && 'bg-(--ui-bg-muted)']"
         aria-label="Stroke picker"
         icon="i-ph-line-segment"
       >
@@ -38,14 +38,14 @@ function setSize(size: number) {
       </UButton>
     </template>
 
-    <template #panel>
+    <template #content>
       <div class="p-2">
         <div class="flex flex-col gap-2">
           <button
             v-for="size in sizes"
             :key="size"
-            class="w-full rounded-full border-2 hover:border-gray-400 cursor-pointer"
-            :class="size === current ? 'border-gray-400' : 'border-white'"
+            class="w-full rounded-full border-2 hover:border-neutral-400 cursor-pointer"
+            :class="size === current ? 'border-neutral-400' : 'border-white'"
             :style="{ backgroundColor: color, height: `${size * ratio + 4}px` }"
             @click="setSize(size)"
           />

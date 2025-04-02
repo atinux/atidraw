@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
   ],
   devtools: { enabled: true },
+  css: ['~/assets/main.css'],
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2024-07-30',
   hub: {
