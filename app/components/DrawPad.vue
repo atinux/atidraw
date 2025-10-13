@@ -2,10 +2,6 @@
 import SignaturePad from 'signature_pad'
 
 const props = defineProps({
-  saveLabel: {
-    type: String,
-    default: 'Save',
-  },
   saveType: {
     type: String,
     default: 'image/jpeg',
@@ -144,7 +140,7 @@ async function save() {
       </div>
     </div>
     <UButton
-      :label="saveLabel"
+      :label="saving ? 'Sharing... (can take a minute)' : 'Share my drawing'"
       class="mt-4"
       size="lg"
       block

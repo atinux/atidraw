@@ -49,7 +49,6 @@ async function save(dataURL: string) {
       </p>
       <div v-if="loggedIn">
         <DrawPad
-          save-label="Share"
           :saving="saving"
           class="max-w-[400px]"
           @save="save"
