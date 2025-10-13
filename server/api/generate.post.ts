@@ -1,3 +1,5 @@
+import { generateText } from 'ai'
+
 /**
  * Generate a new image based on the drawing using AI
  * Used in the `<AIDraw />` component.
@@ -9,22 +11,55 @@ export default eventHandler(async (event) => {
   // Get the drawing and convert it to a array buffer
   const form = await readFormData(event)
   const drawing = form.get('drawing') as File
-  const arrayBuffer = await drawing.arrayBuffer()
+  const drawingArrayBuffer = await drawing.arrayBuffer()
 
-  // Ask LLaVA to describe the drawing
-  const { description } = await hubAI().run('@cf/llava-hf/llava-1.5-7b-hf', {
-    prompt: 'Describe this drawing in one sentence.',
-    image: [...new Uint8Array(arrayBuffer)],
+  // Describe the drawing
+  const { text } = await generateText({
+    model: hubAI('openai/gpt-5-nano'),
+    prompt: [{
+      role: 'user',
+      content: 'Describe this drawing in one sentence.',
+    }, {
+      role: 'user',
+      content: [{
+        type: 'image',
+        image: drawingArrayBuffer,
+      }],
+    }],
   }).catch(() => {
-    return { description: '' }
+    return { text: '' }
   })
 
-  setHeader(event, 'content-type', 'image/png')
-  setHeader(event, 'x-description', description)
-  return await hubAI().run('@cf/runwayml/stable-diffusion-v1-5-img2img', {
-    prompt: description || 'Make it a painting.',
-    guidance: 8,
-    strength: 0.75,
-    image: [...new Uint8Array(arrayBuffer)],
+  setHeader(event, 'x-description', text)
+
+  const result = await generateText({
+    model: hubAI('google/gemini-2.5-flash-image-preview'),
+    providerOptions: {
+      google: { responseModalities: ['TEXT', 'IMAGE'] },
+    },
+    messages: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            text: 'Generate a more detailed and beautiful image of the following drawing:',
+          },
+          {
+            type: 'image',
+            image: drawingArrayBuffer,
+          }
+        ],
+      },
+    ],
   })
+  const image = result.files[0]
+  if (!image) {
+    throw createError({
+      statusCode: 500,
+      message: 'Failed to generate image',
+    })
+  }
+  setHeader(event, 'content-type', image.mediaType)
+  return image.uint8Array
 })

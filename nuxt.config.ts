@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2024-07-30',
   hub: {
-    ai: true,
+    ai: 'vercel',
     blob: true,
   },
   // Development modules

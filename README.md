@@ -1,22 +1,17 @@
 # Draw and share your Art with Atidraw 🎨✨
 
-Atidraw is a web application that lets you to create, enhance, and share your drawings with the world. Harnessing the power of Cloudflare R2 and Cloudflare AI to store and enhance your drawings. 
+Atidraw is a web application that lets you to create, enhance with AI, and share your drawings with the world.
 
-The application is running with server-side rendering on the edge using Cloudflare Pages.
-
-You can deploy it with zero configuration on your Cloudflare account using NuxtHub:
-
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?template=atidraw)
+The application is running with server-side rendering using Vercel and the AI is powered by Vercel AI Gateway.
 
 ### 🚀 Key Features
 
 - **Intuitive Drawing**: User-friendly interface powered by [`signature_pad`](https://github.com/szimek/signature_pad)
 - **AI-Powered Enhancements**: 
   - Automatic alt text generation for accessibility & SEO
-  - Generate an image of your drawing with Stable Diffusion
-- **Global Storage**: Your creations are safely stored using [Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/)
+  - Generate an image of your drawing with Google Nanobanana
+- **Global Storage**: Your creations are stored on the filesystem locally or on Vercel Blob / Cloudflare R2 storage
 - **Flexible Authentication**: Sign in with Google, GitHub, or stay anonymous (local)
-- **High-Performance**: Deployed on the edge with server-side rendering using Cloudflare Pages
 
 ### 🎥 See It in Action
 
@@ -29,16 +24,9 @@ Ready to create? Visit [draw.nuxt.dev](https://draw.nuxt.dev) and share your bes
 - [Nuxt](https://nuxt.com) - The Intuitive Vue Framework
 - [Nuxt UI](https://github.com/nuxt/ui) - Beautiful UI library with TailwindCSS
 - [Nuxt Auth Utils](https://github.com/Atinux/nuxt-auth-utils) - Simplified Authentication
-- [NuxtHub](https://hub.nuxt.com) - Build & deploy to your Cloudflare account with zero configuration
-  - [`hubBlob()`](https://hub.nuxt.com/docs/features/blob) to store drawing on Cloudflare R2
-  - [`hubAI()`](https://hub.nuxt.com/docs/features/ai) to run Cloudflare AI on user's drawing
-- [`npx nuxthub deploy`](https://github.com/nuxt-hub/cli) - To deploy the app on your Cloudflare account for free
-
-## 🏎️ How does it work?
-
-I wrote two articles about how I created Atidraw:
-- [Code, Draw, Deploy: A drawing app with Nuxt & Cloudflare R2](https://hub.nuxt.com/blog/drawing-app-with-nuxt-and-cloudflare-r2)
-- [Using Cloudflare AI Models for User Experience](https://hub.nuxt.com/blog/cloudflare-ai-for-user-experience)
+- [NuxtHub](https://hub.nuxt.com) - Build full-stack Nuxt apps with zero configuration
+  - [`hubAI()`](https://hub.nuxt.com/docs/features/ai) to run AI models on user's drawing
+  - [`hubBlob()`](https://hub.nuxt.com/docs/features/blob) to store drawing on Vercel Blob or Cloudflare R2
 
 ## 🚀 Quick Start
 
@@ -51,10 +39,7 @@ I wrote two articles about how I created Atidraw:
     cp .env.example .env
     ```
     If you don't set the Google and GitHub credentials, anonymous sign-in will be enabled.
-3. Create & link a NuxtHub project to enable running AI models on your Cloudflare account
-    ```bash
-    npx nuxthub link
-    ```
+3. Create a [Vercel AI Gateway API Key](https://vercel.com/d?to=/[team]/~/ai/api-keys&title=Go+to+AI+Gateway)
 4. Launch the dev server
     ```bash
     pnpm dev
