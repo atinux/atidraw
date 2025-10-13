@@ -10,7 +10,7 @@ const { loggedIn, clear } = useUserSession()
         class="flex items-center gap-1 flex-shrink-0 font-bold text-xl"
       >
         <UIcon name="i-lucide-image" />
-        <h3>Instadraw</h3>
+        <h3>Atidraw</h3>
       </NuxtLink>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
         <UButton
