@@ -4,7 +4,7 @@ export default eventHandler(async (event) => {
   const { cursor } = await getQuery<{ cursor?: string }>(event)
 
   const res = await blob.list({
-    limit: 100,
+    limit: 20,
     cursor,
     prefix: 'drawings/',
   })
