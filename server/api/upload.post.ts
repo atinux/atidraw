@@ -1,11 +1,12 @@
-import { generateText } from "ai"
+import { blob, ensureBlob } from 'hub:blob'
+import { generateText } from 'ai'
 
 export default eventHandler(async (event) => {
   // Make sure the user is authenticated to upload
   const { user } = await requireUserSession(event)
 
   // Check last image author
-  const { blobs } = await hubBlob().list({
+  const { blobs } = await blob.list({
     prefix: 'drawings/',
     limit: 1,
   })
@@ -29,10 +30,9 @@ export default eventHandler(async (event) => {
     types: ['image/jpeg'],
   })
 
-  // Ask LLaVA to describe the drawing
   // Describe the drawing
   const { text } = await generateText({
-    model: hubAI('openai/gpt-5-nano'),
+    model: 'openai/gpt-5-nano',
     prompt: [{
       role: 'user',
       content: 'Describe this drawing in one sentence.',
@@ -62,7 +62,7 @@ export default eventHandler(async (event) => {
 
   // Generate an image with AI
   const aiImage = await generateText({
-    model: hubAI('google/gemini-2.5-flash-image-preview'),
+    model: 'google/gemini-3-pro-image',
     providerOptions: {
       google: { responseModalities: ['TEXT', 'IMAGE'] },
     },
@@ -77,20 +77,21 @@ export default eventHandler(async (event) => {
           {
             type: 'image',
             image: drawingArrayBuffer,
-          }
+          },
         ],
       },
     ],
   }).then((result) => {
     const generatedImage = result.files[0]
-    return hubBlob().put(`${name}.${generatedImage.mediaType.split('/')[1]}`, generatedImage.uint8Array, {
+    return blob.put(`${name}.${generatedImage.mediaType.split('/')[1]}`, generatedImage.uint8Array, {
       prefix: 'ai/',
       addRandomSuffix: true,
       contentType: generatedImage.mediaType,
     })
   }).catch(() => null)
 
-  return hubBlob().put(`${name}.jpg`, drawing, {
+  console.log('blob put', `${name}.jpg`, drawing)
+  return blob.put(`${name}.jpg`, drawing, {
     prefix: 'drawings/',
     addRandomSuffix: true,
     customMetadata: {
@@ -101,7 +102,7 @@ export default eventHandler(async (event) => {
       userUrl: user.url,
       description: text.trim(),
       aiImage: aiImage ? aiImage.pathname : '',
-      aiImageUrl: aiImage ? aiImage.customMetadata?.url : '',
+      aiImageUrl: aiImage?.customMetadata?.url || '',
     },
   })
 })

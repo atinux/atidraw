@@ -24,9 +24,8 @@ Ready to draw? Visit [draw.nuxt.dev](https://draw.nuxt.dev) and share your best 
 - [Nuxt](https://nuxt.com) - The Intuitive Vue Framework
 - [Nuxt UI](https://ui.nuxt.com) - Beautiful UI library with TailwindCSS
 - [Nuxt Auth Utils](https://github.com/Atinux/nuxt-auth-utils) - Simplified Authentication
-- [NuxtHub](https://hub.nuxt.com) - Build full-stack Nuxt apps with zero configuration
-  - [`hubAI()`](https://hub.nuxt.com/docs/features/ai) to run AI models on user's drawing
-  - [`hubBlob()`](https://hub.nuxt.com/docs/features/blob) to store drawing on Vercel Blob or Cloudflare R2
+- [NuxtHub Blob](https://hub.nuxt.com/docs/features/blob) - To store drawing on Vercel Blob or Cloudflare R2 (fs locally for development)
+- [AI SDK](https://ai-sdk.dev) - To run AI models on user's drawing
 
 ## 🚀 Quick Start
 

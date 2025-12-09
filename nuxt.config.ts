@@ -9,9 +9,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/main.css'],
   future: { compatibilityVersion: 4 },
-  compatibilityDate: '2024-07-30',
+  compatibilityDate: '2025-10-14',
   hub: {
-    ai: 'vercel',
     blob: true,
   },
   // Development modules
