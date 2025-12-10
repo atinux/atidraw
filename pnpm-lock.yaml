@@ -24,8 +24,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(@babel/parser@7.28.5)(@netlify/blobs@9.1.2)(@vercel/blob@2.0.0)(aws4fetch@1.0.20)(change-case@5.4.4)(db0@0.3.4)(embla-carousel@8.6.0)(encoding@0.1.13)(focus-trap@7.5.4)(ioredis@5.8.1)(jwt-decode@4.0.0)(magicast@0.3.5)(typescript@5.8.3)(vite@7.1.9(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.31.3)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.8.3)))(vue@3.5.22(typescript@5.8.3))(zod@4.1.13)
       '@nuxthub/core':
-        specifier: npm:@nuxthub/core-nightly@0.10.0-20251209-004424-89ff422
-        version: '@nuxthub/core-nightly@0.10.0-20251209-004424-89ff422(@netlify/blobs@9.1.2)(@vercel/blob@2.0.0)(aws4fetch@1.0.20)(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.8.3)(vue-tsc@3.1.1(typescript@5.8.3))'
+        specifier: ^0.10.0
+        version: 0.10.0(@netlify/blobs@9.1.2)(@vercel/blob@2.0.0)(aws4fetch@1.0.20)(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.8.3)(vue-tsc@3.1.1(typescript@5.8.3))
       '@vercel/blob':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1268,8 +1268,8 @@ packages:
       rolldown:
         optional: true
 
-  '@nuxthub/core-nightly@0.10.0-20251209-004424-89ff422':
-    resolution: {integrity: sha512-MGTzJYOfM5j+44AnJxg9+AYNh4mVsIdDkCvfZ69w5XXIsrOGVqAgbBuLdzyvVSE/L64rmyd7jr+Tm+8XuoEX6g==}
+  '@nuxthub/core@0.10.0':
+    resolution: {integrity: sha512-czH/T1DXcXjiYo+yyhk3IvFS2mw6U5WDRSqYCHvMbvM7n13RsPeSCTvzW/awGPPSt/Zd2Q9HTMPs0XccCUuL/Q==}
     hasBin: true
 
   '@nuxtjs/color-mode@3.5.2':
@@ -7587,7 +7587,7 @@ snapshots:
       - vue-tsc
       - yaml
 
-  '@nuxthub/core-nightly@0.10.0-20251209-004424-89ff422(@netlify/blobs@9.1.2)(@vercel/blob@2.0.0)(aws4fetch@1.0.20)(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.8.3)(vue-tsc@3.1.1(typescript@5.8.3))':
+  '@nuxthub/core@0.10.0(@netlify/blobs@9.1.2)(@vercel/blob@2.0.0)(aws4fetch@1.0.20)(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.8.3)(vue-tsc@3.1.1(typescript@5.8.3))':
     dependencies:
       '@cloudflare/workers-types': 4.20251202.0
       '@nuxt/kit': 4.2.1(magicast@0.3.5)
