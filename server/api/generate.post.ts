@@ -48,7 +48,7 @@ export default eventHandler(async (event) => {
           {
             type: 'image',
             image: drawingArrayBuffer,
-          }
+          },
         ],
       },
     ],
