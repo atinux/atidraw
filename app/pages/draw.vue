@@ -27,14 +27,14 @@ async function save(dataURL: string) {
       toast.add({
         title: 'Drawing shared!',
         description: 'Your drawing has been shared with the world.',
-        color: 'green',
+        color: 'success',
       })
       navigateTo('/')
     }).catch((err) => {
       toast.add({
         title: 'Could not share drawing',
         description: err.data?.message || err.message,
-        color: 'red',
+        color: 'error',
       })
     })
   saving.value = false
@@ -49,7 +49,6 @@ async function save(dataURL: string) {
       </p>
       <div v-if="loggedIn">
         <DrawPad
-          save-label="Share"
           :saving="saving"
           class="max-w-[400px]"
           @save="save"

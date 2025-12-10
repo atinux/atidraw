@@ -1,0 +1,11 @@
+{
+  // when deployed to Cloudflare
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "atidraw",
+  "r2_buckets": [
+    {
+      "binding": "BLOB",
+      "bucket_name": "draw" // change this to your bucket name
+    }
+  ]
+}

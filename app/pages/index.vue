@@ -43,17 +43,17 @@ function drawingTitle(drawing: BlobObject) {
           :title="drawingTitle(drawing)"
         >
           <img
-            :src="`/drawings/${drawing.pathname}`"
+            :src="drawing.customMetadata?.url || `/drawings/${drawing.pathname}`"
             :alt="drawing.customMetadata?.description || drawing.pathname"
-            class="w-full rounded aspect-1"
+            class="w-full rounded aspect-square"
             loading="lazy"
           >
           <img
             v-if="drawing.customMetadata?.aiImage"
-            :src="`/drawings/${drawing.customMetadata?.aiImage}`"
+            :src="drawing.customMetadata?.aiImageUrl || `/drawings/${drawing.customMetadata?.aiImage}`"
             :alt="`AI image generated of ${drawing.customMetadata?.description || drawing.pathname}`"
             :title="drawing.customMetadata?.description || ''"
-            class="w-full rounded aspect-1 absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-200"
+            class="w-full rounded aspect-square absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-200"
             loading="lazy"
           >
         </div>

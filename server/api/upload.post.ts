@@ -1,9 +1,12 @@
+import { blob, ensureBlob } from 'hub:blob'
+import { generateText } from 'ai'
+
 export default eventHandler(async (event) => {
   // Make sure the user is authenticated to upload
   const { user } = await requireUserSession(event)
 
   // Check last image author
-  const { blobs } = await hubBlob().list({
+  const { blobs } = await blob.list({
     prefix: 'drawings/',
     limit: 1,
   })
@@ -20,24 +23,34 @@ export default eventHandler(async (event) => {
   // useUpload send a formData
   const form = await readFormData(event)
   const drawing = form.get('drawing') as File
+  const drawingArrayBuffer = await drawing.arrayBuffer()
 
   ensureBlob(drawing, {
     maxSize: '1MB',
     types: ['image/jpeg'],
   })
 
-  // Ask LLaVA to describe the drawing
-  const { description } = await hubAI().run('@cf/llava-hf/llava-1.5-7b-hf', {
-    prompt: 'Describe this drawing in one sentence.',
-    image: [...new Uint8Array(await drawing.arrayBuffer())],
+  // Describe the drawing
+  const { text } = await generateText({
+    model: 'openai/gpt-5-nano',
+    prompt: [{
+      role: 'user',
+      content: 'Describe this drawing in one sentence.',
+    }, {
+      role: 'user',
+      content: [{
+        type: 'image',
+        image: drawingArrayBuffer,
+      }],
+    }],
   }).catch(() => {
-    return { description: '' }
+    return { text: '' }
   })
 
-  if (description.includes('penis')) {
+  if (text.includes('penis')) {
     throw createError({
       statusCode: 400,
-      message: 'You cannot upload drawings with TEUB.',
+      message: 'You cannot upload this kind of drawings.',
     })
   }
 
@@ -48,29 +61,37 @@ export default eventHandler(async (event) => {
   const name = `${new Date('2050-01-01').getTime() - Date.now()}`
 
   // Generate an image with AI
-  const aiImage = await hubAI().run('@cf/runwayml/stable-diffusion-v1-5-img2img', {
-    prompt: description || 'A drawing',
-    guidance: 8,
-    strength: 0.75,
-    image: [...new Uint8Array(await drawing.arrayBuffer())],
-  })
-    .then((blob: Blob | Uint8Array) => {
-      if (blob instanceof Uint8Array) {
-        blob = new Blob([blob])
-      }
-      // If black image, skip
-      if (blob.size === 842) {
-        return null
-      }
-      return hubBlob().put(`${name}.png`, blob, {
-        prefix: 'ai/',
-        addRandomSuffix: true,
-        contentType: 'image/png',
-      })
+  const aiImage = await generateText({
+    model: 'google/gemini-3-pro-image',
+    providerOptions: {
+      google: { responseModalities: ['TEXT', 'IMAGE'] },
+    },
+    messages: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            text: 'Generate a more detailed and beautiful image of the following drawing. Try to respect the drawing as much as possible. Please generate the image in jpg, a 1:1 aspect ratio, as light as possible in term of size and 512x512px.',
+          },
+          {
+            type: 'image',
+            image: drawingArrayBuffer,
+          },
+        ],
+      },
+    ],
+  }).then((result) => {
+    const generatedImage = result.files[0]
+    return blob.put(`${name}.${generatedImage.mediaType.split('/')[1]}`, generatedImage.uint8Array, {
+      prefix: 'ai/',
+      addRandomSuffix: true,
+      contentType: generatedImage.mediaType,
     })
-    .catch(() => null)
+  }).catch(() => null)
 
-  return hubBlob().put(`${name}.jpg`, drawing, {
+  console.log('blob put', `${name}.jpg`, drawing)
+  return blob.put(`${name}.jpg`, drawing, {
     prefix: 'drawings/',
     addRandomSuffix: true,
     customMetadata: {
@@ -79,8 +100,9 @@ export default eventHandler(async (event) => {
       userName: user.name,
       userAvatar: user.avatar,
       userUrl: user.url,
-      description: description.trim(),
+      description: text.trim(),
       aiImage: aiImage ? aiImage.pathname : '',
+      aiImageUrl: aiImage?.customMetadata?.url || '',
     },
   })
 })
