@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   css: ['~/assets/main.css'],
+  routeRules: {
+    '/drawings/**': { isr: true },
+  },
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2025-10-14',
   hub: {
