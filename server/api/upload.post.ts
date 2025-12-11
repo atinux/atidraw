@@ -72,7 +72,7 @@ export default eventHandler(async (event) => {
         content: [
           {
             type: 'text',
-            text: 'Generate a more detailed and beautiful image of the following drawing. Try to respect the drawing as much as possible. Please generate the image in jpg, a 1:1 aspect ratio, as light as possible in term of size and 512x512px.',
+            text: 'Generate a more detailed and beautiful drawing based on the following drawing. Try to respect the drawing as much as possible. Please generate the image in jpg, a 1:1 aspect ratio, as light as possible in term of size and 512x512px.',
           },
           {
             type: 'image',
