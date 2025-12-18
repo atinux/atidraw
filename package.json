@@ -18,6 +18,7 @@
     "@nuxt/eslint": "^1.9.0",
     "@nuxt/ui": "^4.0.1",
     "@nuxthub/core": "^0.10.0",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^2.0.0",
     "@vueuse/components": "^13.9.0",
     "@vueuse/core": "^13.9.0",

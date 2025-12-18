@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/nuxt'
+
 useSeoMeta({
   title: 'Draw and share your Art with Atidraw',
   description: 'Atidraw is a web application that lets you to create, enhance, and share your drawings with the world. Harnessing the power of Cloudflare R2 and Cloudflare AI to store and enhance your drawings.',
@@ -24,5 +26,6 @@ if (import.meta.server) {
       </main>
     </UContainer>
     <AppFooter />
+    <Analytics />
   </UApp>
 </template>
